@@ -23,7 +23,8 @@ export const articles = [
         author: "Eleonora Bianchi",
         date: "XIV July MMXXVI",
         readTime: "8 min",
-        image: "https://images.unsplash.com/photo-1544819667-4d6f4e5b1a7d?w=300&h=300&fit=crop",
+        image:             "https://upload.wikimedia.org/wikipedia/commons/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg",
+
         saved: true,
     },
     {
@@ -46,7 +47,9 @@ export const articles = [
         author: "Jean-Pierre Lefebvre",
         date: "VI July MMXXVI",
         readTime: "5 min",
-        image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=300&h=300&fit=crop",
+        image:
+            "https://commons.wikimedia.org/wiki/Special:FilePath/Mona%20Lisa.jpg",
+
         saved: false,
     },
     {
@@ -58,7 +61,9 @@ export const articles = [
         author: "Dr. Aldous Pemberton",
         date: "II July MMXXVI",
         readTime: "7 min",
-        image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=300&h=300&fit=crop",
+        image:
+            "https://commons.wikimedia.org/wiki/Special:FilePath/Lady%20with%20an%20Ermine.jpg",
+
         saved: true,
     },
 ];

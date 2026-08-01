@@ -37,7 +37,7 @@ export default function ArticleCard({ article, variant = "feed", index }: Articl
   const { category, title, excerpt, author, date, readTime, image, saved } = article;
 
   return (
-    <div className="flex items-start justify-between gap-8 py-8">
+    <div className="flex items-start justify-between gap-8 py-8 ">
       {variant === "numbered" && (
         <span className="font-display text-2xl text-gilt-dim">{toRoman(index)}</span>
       )}
