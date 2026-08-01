@@ -1,48 +1,34 @@
-export default function SectionHeader({
-                                          eyebrow,
-                                          title,
-                                          button,
-                                      }) {
-    return (
-        <div className="flex items-end justify-between border-b border-[#292419] pb-7">
+import type { ReactNode } from "react";
 
-            <div>
-                <p className="
-          mb-2
-          text-[9px]
-          tracking-[0.25em]
-          text-[#716346]
-        ">
-                    {eyebrow}
-                </p>
+interface SectionHeaderProps {
+  eyebrow: string;
+  title: string;
+  /** Optional element (e.g. a Compose button) rendered aligned right of the title. */
+  action?: ReactNode;
+  /** Render the gold-dot divider under the heading. Default true. */
+  showDivider?: boolean;
+}
 
-                <h1 className="
-          font-editorial
-          text-[35px]
-          leading-none
-          text-[#e9dfc8]
-        ">
-                    {title}
-                </h1>
-            </div>
-
-            {button && (
-                <button className="
-          rounded-md
-          border
-          border-[#8c7221]
-          bg-[#c5a438]
-          px-5
-          py-2.5
-          text-[10px]
-          tracking-[0.15em]
-          text-[#171207]
-          transition
-          hover:bg-[#d3b44a]
-        ">
-                    ✎ &nbsp; {button}
-                </button>
-            )}
+export default function SectionHeader({ eyebrow, title, action, showDivider = true }: SectionHeaderProps) {
+  return (
+    <div>
+      <div className="flex items-end justify-between">
+        <div>
+          <p className="type-caps text-xs text-gilt-dim">{eyebrow}</p>
+          <h1 className="mt-2 font-display text-4xl text-parchment">{title}</h1>
         </div>
-    );
+        {action}
+      </div>
+      {showDivider && <Divider className="mt-8" />}
+    </div>
+  );
+}
+
+/** Hairline rule with a small gold dot centered on it — reused between article rows too. */
+export function Divider({ className = "" }: { className?: string }) {
+  return (
+    <div className={`relative border-t border-ink-line ${className}`}>
+      <span className="absolute left-1/2 top-0 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gilt" />
+    </div>
+  );
 }

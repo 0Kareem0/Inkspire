@@ -1,26 +1,28 @@
-import { categories } from "../data/articles";
+interface CategoryFilterProps {
+  categories: string[];
+  /** Currently highlighted category (pass "" to highlight none). */
+  active?: string;
+}
 
-export default function CategoryFilter({ active = "ALL SUBJECTS" }) {
-    return (
-        <div className="flex flex-wrap gap-2">
-            {categories.map((category) => (
-                <button
-                    key={category}
-                    className={`
-            rounded-md border px-3 py-1.5
-            text-[9px]
-            tracking-[0.15em]
-            transition
-            ${
-                        active === category
-                            ? "border-[#b3942f] bg-[#151209] text-[#c9a936]"
-                            : "border-[#302918] text-[#766b4e] hover:border-[#655521] hover:text-[#b29c5c]"
-                    }
-          `}
-                >
-                    {category}
-                </button>
-            ))}
-        </div>
-    );
+export default function CategoryFilter({ categories, active = "" }: CategoryFilterProps) {
+  return (
+    <div className="flex flex-wrap gap-3">
+      {categories.map((category) => {
+        const isActive = category === active;
+        return (
+          <button
+            key={category}
+            type="button"
+            className={`type-caps border px-4 py-2 text-[11px] transition-colors ${
+              isActive
+                ? "border-gilt text-gilt"
+                : "border-ink-line text-parchment-muted hover:border-gilt-dim hover:text-parchment"
+            }`}
+          >
+            {category}
+          </button>
+        );
+      })}
+    </div>
+  );
 }

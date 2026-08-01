@@ -1,119 +1,56 @@
-export default function FeaturedArticle({ article }) {
-    return (
-        <article className="
-      group
-      relative
-      h-[530px]
-      overflow-hidden
-      rounded-md
-      border
-      border-[#322b1e]
-    ">
+import { Bookmark, Clock } from "lucide-react";
 
-            {/* Background image */}
-            <img
-                src={article.image}
-                alt=""
-                className="
-          absolute
-          inset-0
-          h-full
-          w-full
-          object-cover
-          opacity-60
-          transition
-          duration-700
-          group-hover:scale-[1.02]
-        "
-            />
+interface FeaturedArticleProps {
+  category: string;
+  title: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  readTime: string;
+  image: string;
+}
 
-            {/* Dark overlay */}
-            <div className="
-        absolute
-        inset-0
-        bg-gradient-to-t
-        from-[#0b0a07]
-        via-[#0b0a07]/65
-        to-[#0b0a07]/20
-      " />
+export default function FeaturedArticle({
+  category,
+  title,
+  excerpt,
+  author,
+  date,
+  readTime,
+  image,
+}: FeaturedArticleProps) {
+  return (
+    <div className="relative overflow-hidden border border-ink-line">
+      <img src={image} alt="" className="h-[420px] w-full object-cover object-top opacity-70" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/10" />
 
-            {/* Content */}
-            <div className="
-        absolute
-        bottom-0
-        left-0
-        max-w-[760px]
-        p-8
-        md:p-12
-      ">
+      <div className="absolute inset-x-0 bottom-0 px-8 pb-8 sm:px-12 sm:pb-10">
+        <span className="type-caps inline-block border border-gilt-dim px-3 py-1 text-[10px] text-gilt">
+          {category}
+        </span>
 
-                <div className="
-          mb-6
-          inline-block
-          rounded-md
-          border
-          border-[#66551d]
-          px-3
-          py-1
-        ">
-          <span className="text-[9px] tracking-[0.2em] text-[#b09435]">
-            {article.category}
-          </span>
-                </div>
+        <h2 className="mt-4 max-w-2xl font-display text-4xl leading-tight text-parchment sm:text-5xl">
+          {title}
+        </h2>
 
-                <h1 className="
-          font-editorial
-          text-[42px]
-          font-medium
-          leading-[0.98]
-          text-[#eee5d0]
-          md:text-[58px]
-        ">
-                    {article.title}
-                </h1>
+        <p className="mt-4 max-w-xl font-meta text-lg italic text-parchment-muted">{excerpt}</p>
 
-                <p className="
-          mt-5
-          max-w-[650px]
-          font-editorial
-          text-[17px]
-          italic
-          leading-relaxed
-          text-[#9c9175]
-        ">
-                    {article.description}
-                </p>
-
-                <div className="mt-6 flex items-center gap-3">
-          <span className="font-editorial text-[14px] italic text-[#988863]">
-            {article.author}
-          </span>
-
-                    <span className="text-[#514832]">·</span>
-
-                    <span className="font-editorial text-[13px] text-[#817558]">
-            {article.date}
-          </span>
-
-                    <span className="text-[#514832]">·</span>
-
-                    <span className="text-[10px] text-[#817558]">
-            {article.readTime}
-          </span>
-                </div>
-            </div>
-
-            {/* Bookmark */}
-            <button className="
-        absolute
-        bottom-12
-        right-10
-        text-[#9d8531]
-        transition
-        hover:text-[#d0ae3c]
-      ">
-                ♧
-            </button>
-        </article>
-    );
+        <div className="mt-6 flex items-center justify-between">
+          <div className="flex items-center gap-3 font-meta text-sm italic text-parchment-faint">
+            <span>{author}</span>
+            <span className="not-italic">·</span>
+            <span className="not-italic">{date}</span>
+            <span className="not-italic">·</span>
+            <span className="flex items-center gap-1 not-italic">
+              <Clock size={13} strokeWidth={1.5} />
+              {readTime}
+            </span>
+          </div>
+          <button type="button" aria-label="Save article">
+            <Bookmark size={17} strokeWidth={1.5} className="text-parchment-faint hover:text-gilt" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }

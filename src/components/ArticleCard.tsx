@@ -1,96 +1,115 @@
-export default function ArticleCard({ article, showImage = true }) {
-    return (
-        <article className="group border-b border-[#292419] py-7">
+import { Bookmark, Clock, Pencil, Trash2 } from "lucide-react";
 
-            <div className="flex gap-7">
+export interface Article {
+  id: string;
+  category: string;
+  title: string;
+  excerpt?: string;
+  author?: string;
+  date: string;
+  readTime?: string;
+  image?: string;
+  saved?: boolean;
+}
 
-                {/* Content */}
-                <div className="min-w-0 flex-1">
+type ArticleCardVariant = "feed" | "numbered" | "mywork";
 
-                    {/* Category */}
-                    <div className="mb-4 rounded-md border border-[#544717] px-3 py-1">
-            <span className="text-[9px] tracking-[0.22em] text-[#9c8432]">
-              {article.category}
-            </span>
-                    </div>
+interface ArticleCardProps {
+  article: Article;
+  /**
+   * feed     — thumbnail + bookmark toggle (Home, Saved)
+   * numbered — roman-numeral index, no thumbnail (Search "Notable Works")
+   * mywork   — edit/delete controls instead of a bookmark (MyWorks)
+   */
+  variant?: ArticleCardVariant;
+  /** 1-based position, only used to render the roman numeral in the "numbered" variant. */
+  index?: number;
+}
 
-                    {/* Title */}
-                    <h2 className="
-            font-editorial
-            text-[24px]
-            font-semibold
-            leading-[1.05]
-            text-[#e8dfc9]
-            transition
-            group-hover:text-[#c9a936]
-            md:text-[26px]
-          ">
-                        {article.title}
-                    </h2>
+const ROMAN_NUMERALS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 
-                    {/* Description */}
-                    <p className="
-            mt-3
-            max-w-[720px]
-            font-editorial
-            text-[15px]
-            leading-relaxed
-            text-[#766d58]
-          ">
-                        {article.description}
-                    </p>
+function toRoman(index?: number) {
+  if (!index || index < 1) return "";
+  return ROMAN_NUMERALS[index - 1] ?? String(index);
+}
 
-                    {/* Meta */}
-                    <div className="mt-4 flex items-center gap-3">
-            <span className="font-editorial text-[13px] italic text-[#887b5d]">
-              {article.author}
-            </span>
+export default function ArticleCard({ article, variant = "feed", index }: ArticleCardProps) {
+  const { category, title, excerpt, author, date, readTime, image, saved } = article;
 
-                        <span className="text-[#403a2d]">·</span>
+  return (
+    <div className="flex items-start justify-between gap-8 py-8">
+      {variant === "numbered" && (
+        <span className="font-display text-2xl text-gilt-dim">{toRoman(index)}</span>
+      )}
 
-                        <span className="font-editorial text-[12px] text-[#766b50]">
-              {article.date}
-            </span>
+      <div className="min-w-0 flex-1">
+        <span className="type-caps inline-block border border-gilt-dim px-3 py-1 text-[10px] text-gilt">
+          {category}
+        </span>
 
-                        <span className="text-[#403a2d]">·</span>
+        <h3
+          className={`mt-4 font-display text-2xl transition-colors ${
+            variant === "mywork" ? "text-gilt hover:text-gilt-bright" : "text-parchment hover:text-gilt"
+          }`}
+        >
+          <a href="#">{title}</a>
+        </h3>
 
-                        <span className="text-[10px] text-[#766b50]">
-              ◷ {article.readTime}
-            </span>
-                    </div>
-                </div>
+        {variant !== "mywork" && excerpt && (
+          <p className="mt-2 max-w-2xl font-meta text-[15px] text-parchment-muted">{excerpt}</p>
+        )}
 
-                {/* Image */}
-                {showImage && (
-                    <div className="
-            hidden
-            h-[125px]
-            w-[105px]
-            shrink-0
-            overflow-hidden
-            rounded-md
-            border border-[#40371f]
-            sm:block
-          ">
-                        <img
-                            src={article.image}
-                            alt=""
-                            className="
-                h-full
-                w-full
-                object-cover
-                grayscale-[15%]
-                opacity-80
-                transition
-                duration-500
-                group-hover:scale-105
-                group-hover:opacity-100
-              "
-                        />
-                    </div>
-                )}
+        <div className="mt-4 flex items-center gap-3 font-meta text-sm italic text-parchment-faint">
+          {author && (
+            <>
+              <span>{author}</span>
+              <span className="not-italic">·</span>
+            </>
+          )}
+          <span className="not-italic">{date}</span>
+          {readTime && (
+            <>
+              <span className="not-italic">·</span>
+              <span className="flex items-center gap-1 not-italic">
+                <Clock size={13} strokeWidth={1.5} />
+                {readTime}
+              </span>
+            </>
+          )}
+        </div>
+      </div>
 
-            </div>
-        </article>
-    );
+      {variant === "feed" && (
+        <div className="flex flex-shrink-0 flex-col items-end justify-between self-stretch">
+          {image ? (
+            <img
+              src={image}
+              alt=""
+              className="h-24 w-24 flex-shrink-0 border border-ink-line object-cover sm:h-28 sm:w-28"
+            />
+          ) : (
+            <span />
+          )}
+          <button type="button" aria-label="Save article" className="mt-2">
+            <Bookmark
+              size={16}
+              strokeWidth={1.5}
+              className={saved ? "fill-gilt text-gilt" : "text-parchment-faint hover:text-gilt"}
+            />
+          </button>
+        </div>
+      )}
+
+      {variant === "mywork" && (
+        <div className="flex flex-shrink-0 items-center gap-4 pt-1">
+          <button type="button" aria-label="Edit">
+            <Pencil size={16} strokeWidth={1.5} className="text-parchment-muted hover:text-gilt" />
+          </button>
+          <button type="button" aria-label="Delete">
+            <Trash2 size={16} strokeWidth={1.5} className="text-parchment-muted hover:text-gilt" />
+          </button>
+        </div>
+      )}
+    </div>
+  );
 }

@@ -1,42 +1,25 @@
 import Navbar from "../components/Navbar";
-import CategoryFilter from "../components/CategoryFilter";
 import FeaturedArticle from "../components/FeaturedArticle";
-import ArticleCard from "../components/ArticleCard";
-import { articles } from "../data/articles";
+import CategoryFilter from "../components/CategoryFilter";
+import ArticleList from "../components/ArticleList";
+import { Divider } from "../components/SectionHeader";
+import { featuredArticle, articles, categories } from "../data/articles";
 
 export default function Home() {
-    const featured = articles[4];
+  return (
+    <div className="min-h-screen bg-ink">
+      <Navbar active="Home" />
 
-    return (
-        <div className="min-h-screen bg-[#0b0a07]">
+      <main className="mx-auto max-w-6xl px-6 py-10 sm:px-10">
+        <FeaturedArticle {...featuredArticle} />
 
-            <Navbar active="HOME" />
-
-            <main className="mx-auto max-w-[1100px] px-6 pb-24">
-
-                {/* Featured */}
-                <section className="pt-9">
-                    <FeaturedArticle article={featured} />
-                </section>
-
-                {/* Categories */}
-                <section className="py-8">
-                    <CategoryFilter />
-                </section>
-
-                {/* Article list */}
-                <section>
-                    {articles
-                        .filter((article) => article.id !== featured.id)
-                        .map((article) => (
-                            <ArticleCard
-                                key={article.id}
-                                article={article}
-                            />
-                        ))}
-                </section>
-
-            </main>
+        <div className="mt-12">
+          <CategoryFilter categories={categories} active="All Subjects" />
+          <Divider className="mt-6" />
         </div>
-    );
+
+        <ArticleList articles={articles} variant="feed" />
+      </main>
+    </div>
+  );
 }

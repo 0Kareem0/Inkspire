@@ -1,58 +1,53 @@
-const navItems = ["HOME", "SEARCH", "WRITE", "SAVED"];
+import { BookOpen, Feather } from  'lucide-react';
 
-export default function Navbar({ active = "HOME" }) {
-    return (
-        <header className="border-b border-[#272218] bg-[#0b0a07]">
-            <div className="mx-auto flex h-[74px] max-w-[1100px] items-center justify-between px-6">
+const NAV_LINKS = ["Home", "Search", "Write", "Saved"] as const;
 
-                {/* Logo */}
-                <div className="flex items-center gap-2">
-                    <span className="text-[15px] text-[#c9a936]">▥</span>
+type NavLink = (typeof NAV_LINKS)[number];
 
-                    <span className="font-editorial text-[22px] tracking-wide text-[#e8dfc9]">
-            Folio
-          </span>
-                </div>
+interface NavbarProps {
+  /** Which nav item to highlight as the current page. */
+  active?: NavLink;
+}
 
-                {/* Navigation */}
-                <nav className="hidden items-center gap-2 md:flex">
-                    {navItems.map((item) => (
-                        <button
-                            key={item}
-                            className={`
-                rounded-md px-4 py-2
-                text-[10px]
-                font-medium
-                tracking-[0.2em]
-                transition
-                ${
-                                active === item
-                                    ? "border border-[#6f5b1c] bg-[#16140d] text-[#c9a936]"
-                                    : "border border-transparent text-[#756b51] hover:text-[#b4a36f]"
-                            }
-              `}
-                        >
-                            {item}
-                        </button>
-                    ))}
-                </nav>
+export default function Navbar({ active = "Home" }: NavbarProps) {
+  return (
+    <header className="border-b border-ink-line">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 sm:px-10">
+        {/* Logo */}
+        <a href="#" className="flex items-center gap-2 text-parchment">
+          <BookOpen size={20} strokeWidth={1.5} className="text-gilt" />
+          <span className="font-display text-xl tracking-wide">Inkspire</span>
+        </a>
 
-                {/* Compose */}
-                <button
-                    className="
-            hidden rounded-md border border-[#6f5b1c]
-            px-5 py-2
-            text-[10px]
-            tracking-[0.18em]
-            text-[#c9a936]
-            transition
-            hover:bg-[#17140b]
-            md:block
-          "
-                >
-                    ✎ &nbsp; COMPOSE
-                </button>
-            </div>
-        </header>
-    );
+        {/* Nav links */}
+        <nav className="hidden items-center gap-10 md:flex">
+          {NAV_LINKS.map((link) => {
+            const isActive = link === active;
+            return (
+              <a
+                key={link}
+                href="#"
+                className={`type-caps text-xs transition-colors ${
+                  isActive
+                    ? "border-b border-gilt pb-1 text-gilt"
+                    : "text-parchment-muted hover:text-parchment"
+                }`}
+              >
+                {link}
+              </a>
+            );
+          })}
+        </nav>
+
+        {/* Compose button */}
+        <a
+          href="#"
+          className="type-caps flex items-center gap-2 border border-gilt-dim px-4 py-2 text-xs text-gilt transition-colors hover:border-gilt hover:bg-gilt/10"
+        >
+          <Feather size={13} strokeWidth={1.5} />
+          Compose
+        </a>
+      </div>
+    </header>
+  );
 }
