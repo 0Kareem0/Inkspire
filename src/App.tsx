@@ -1,6 +1,6 @@
 import Home from "./pages/Home";
 
-console.log("i will rewrite all this project again")
+console.log("Starting")
 function App() {
     return <Home />;
 }
