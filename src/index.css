@@ -1,36 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=EB+Garamond:ital@0;1&family=Cinzel:wght@400;500;600&display=swap");
 @import "tailwindcss";
 
-/* Design tokens — the single source of truth for Inkspire's palette + type */
-@theme {
-    --color-ink: #0a0908; /* page background */
-    --color-ink-soft: #100e0b; /* card / panel background */
-    --color-ink-line: #2b2419; /* hairline dividers */
-
-    --color-parchment: #f2ead9; /* primary headline text */
-    --color-parchment-muted: #a89a7c; /* secondary / meta text */
-    --color-parchment-faint: #6f6650; /* tertiary / placeholder text */
-
-    --color-gilt: #c9a544; /* primary gold accent */
-    --color-gilt-bright: #e0c168; /* hover / active gold */
-    --color-gilt-dim: #7a6530; /* subdued borders on gold elements */
-
-    --font-display: "Playfair Display", serif;
-    --font-meta: "EB Garamond", serif;
-    --font-caps: "Cinzel", serif;
-}
-
-@layer base {
-    body {
-        @apply bg-ink text-parchment font-meta antialiased;
-
-    }
-}
-
-@layer utilities {
-    /* Small-caps tracked label style used for nav items, eyebrows, and pills */
-    .type-caps {
-        font-family: var(--font-caps);
-        letter-spacing: 0.14em;
-    }
+body{
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: "Jim Nightshade", cursive;
 }
