@@ -1,6 +1,6 @@
 import Home from "./pages/Home";
 
-console.log("Starting App");
+console.log("navbar is done");
 function App() {
     return <Home />;
 }
