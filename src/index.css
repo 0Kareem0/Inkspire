@@ -23,7 +23,7 @@
 @layer base {
     body {
         @apply bg-ink text-parchment font-meta antialiased;
-        /*color: var(--color-parchment-faint); eslam's */
+
     }
 }
 
