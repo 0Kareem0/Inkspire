@@ -1,23 +1,18 @@
 export default function ArticleCard() {
     return (
-    <div className="flex pt-4 items-center justify-center ">
-      <article className="relative w-250 h-150 overflow-hidden rounded-lg border border-[#5b4a25]">
-
-        {/* Background */}
+    <div className="flex pt-8 items-center justify-center ">
+      <div className="relative w-250 h-150 overflow-hidden rounded-lg border border-[#5b4a25]">
         <img
           src="card.avif"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/40" />
 
-        {/* Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0b08] via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#0d0b08] via-black/30 to-transparent" />
 
-        {/* Content */}
-        <div className="relative z-10 flex min-h-[600px] flex-col justify-end p-8 md:p-14">
+        <div className="relative z-10 flex min-h-150 flex-col justify-end p-6 md:p-14">
 
           <span className="mb-6 w-fit rounded-md border border-[#765d27] px-3 py-1 text-xs tracking-[0.2em] text-[#b99a50]">
             PHILOSOPHY
@@ -45,7 +40,7 @@ export default function ArticleCard() {
           </div>
 
         </div>
-      </article>
+      </div>
     </div>
     )
 }
