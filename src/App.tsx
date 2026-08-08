@@ -1,6 +1,6 @@
 import Home from "./pages/Home";
 
-console.log("i came back, i was sick");
+console.log("finished the categories");
 function App() {
     return <Home />;
 }
