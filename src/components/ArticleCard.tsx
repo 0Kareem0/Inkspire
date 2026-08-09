@@ -1,11 +1,11 @@
 export default function ArticleCard() {
     return (
     <div className="flex pt-8 items-center justify-center ">
-      <div className="relative w-250 h-150 overflow-hidden rounded-lg border border-[#5b4a25]">
+      <div className="group relative w-250 h-150 overflow-hidden rounded-lg border border-[#5b4a25]">
         <img
           src="card.avif"
           alt=""
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
 
         <div className="absolute inset-0 bg-black/40" />
@@ -18,7 +18,7 @@ export default function ArticleCard() {
             PHILOSOPHY
           </span>
 
-          <h1 className="max-w-3xl font-serif text-4xl leading-tight text-[#eee4cf] md:text-5xl">
+          <h1 className="max-w-3xl font-serif text-4xl leading-tight text-[#eee4cf] md:text-5xl transition-colors duration-300 group-hover:text-[#d4b873]">
             On the Virtue of Slowness in an Age of Acceleration
           </h1>
 
@@ -34,7 +34,7 @@ export default function ArticleCard() {
             <span>·</span>
             <span>7 min</span>
 
-            <button className="ml-auto text-xl text-[#b99a50]">
+            <button className="ml-auto text-xl text-[#b99a50] cursor-pointer hover:text-[#d4b873] transition-colors">
               ♡
             </button>
           </div>
