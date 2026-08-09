@@ -1,84 +1,88 @@
-// Plain JS data module — article shape (for reference, since this file has no TS types):
-// { id, category, title, excerpt, author, date, readTime, image, saved }
-
 export const featuredArticle = {
-    id: "featured-1",
-    category: "Philosophy",
-    title: "On the Virtue of Slowness in an Age of Acceleration",
-    excerpt:
-        "How the ancient philosophers conceived of time, leisure, and the examined life — and what they might counsel us today.",
-    author: "Marcus Aldervane",
-    date: "XVIII July MMXXVI",
-    readTime: "7 min",
-    image: "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?w=1200&h=800&fit=crop",
+  id: "featured-1",
+  category: "Philosophy",
+  title: "On the Virtue of Slowness in an Age of Acceleration",
+  excerpt:
+    "How the ancient philosophers conceived of time, leisure, and the examined life — and what they might counsel us today.",
+  author: "Marcus Aldervane",
+  date: "XVIII July MMXXVI",
+  readTime: "7 min",
+  image:
+    "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?w=1200&h=800&fit=crop",
 };
 
 export const articles = [
-    {
-        id: "florentine-bankers",
-        category: "History",
-        title: "The Florentine Bankers and the Birth of the Modern World",
-        excerpt:
-            "How the Medici family's financial innovations — and their patronage of beauty — made the Renaissance possible.",
-        author: "Eleonora Bianchi",
-        date: "XIV July MMXXVI",
-        readTime: "8 min",
-        image:             "https://upload.wikimedia.org/wikipedia/commons/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg",
-
-        saved: true,
-    },
-    {
-        id: "anatomists",
-        category: "Sciences",
-        title: "What the Anatomists Knew",
-        excerpt:
-            "The Renaissance dissection theaters of Padua and Bologna gave us modern medicine — and a new philosophy of the body.",
-        author: "Dr. Vittoria Sermenti",
-        date: "X July MMXXVI",
-        readTime: "6 min",
-        image: "https://images.unsplash.com/photo-1578926288207-a90a5366759d?w=300&h=300&fit=crop",
-        saved: false,
-    },
-    {
-        id: "montaigne",
-        category: "Letters",
-        title: "Montaigne and the Art of the Personal Essay",
-        excerpt: "Five centuries after his death, the inventor of a literary form remains its undisputed master.",
-        author: "Jean-Pierre Lefebvre",
-        date: "VI July MMXXVI",
-        readTime: "5 min",
-        image:
-            "https://commons.wikimedia.org/wiki/Special:FilePath/Mona%20Lisa.jpg",
-
-        saved: false,
-    },
-    {
-        id: "kepler",
-        category: "Sciences",
-        title: "The Music of the Spheres: Kepler and the Harmony of the World",
-        excerpt:
-            "In the Harmonices Mundi, a great scientist attempted to hear the cosmos sing — and was not entirely wrong.",
-        author: "Dr. Aldous Pemberton",
-        date: "II July MMXXVI",
-        readTime: "7 min",
-        image:
-            "https://commons.wikimedia.org/wiki/Special:FilePath/Lady%20with%20an%20Ermine.jpg",
-
-        saved: true,
-    },
+  {
+    id: "florentine-bankers",
+    category: "History",
+    title: "The Florentine Bankers and the Birth of the Modern World",
+    excerpt:
+      "How the Medici family's financial innovations — and their patronage of beauty — made the Renaissance possible.",
+    author: "Eleonora Bianchi",
+    date: "XIV July MMXXVI",
+    readTime: "8 min",
+    image:
+      "https://images.unsplash.com/photo-1588260692987-01360da8185b?q=80&w=826&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    saved: true,
+  },
+  {
+    id: "anatomists",
+    category: "Sciences",
+    title: "What the Anatomists Knew",
+    excerpt:
+      "The Renaissance dissection theaters of Padua and Bologna gave us modern medicine — and a new philosophy of the body.",
+    author: "Dr. Vittoria Sermenti",
+    date: "X July MMXXVI",
+    readTime: "6 min",
+    image:
+      "https://images.unsplash.com/photo-1578926288207-a90a5366759d?w=300&h=300&fit=crop",
+    saved: false,
+  },
+  {
+    id: "montaigne",
+    category: "Letters",
+    title: "Montaigne and the Art of the Personal Essay",
+    excerpt:
+      "Five centuries after his death, the inventor of a literary form remains its undisputed master.",
+    author: "Jean-Pierre Lefebvre",
+    date: "VI July MMXXVI",
+    readTime: "5 min",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Mona%20Lisa.jpg",
+    saved: false,
+  },
+  {
+    id: "kepler",
+    category: "Sciences",
+    title: "The Music of the Spheres: Kepler and the Harmony of the World",
+    excerpt:
+      "In the Harmonices Mundi, a great scientist attempted to hear the cosmos sing — and was not entirely wrong.",
+    author: "Dr. Aldous Pemberton",
+    date: "II July MMXXVI",
+    readTime: "7 min",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Lady%20with%20an%20Ermine.jpg",
+    saved: true,
+  },
 ];
 
-// Subset of `articles` a user has bookmarked — used on the Saved page.
 export const savedArticles = articles.filter((article) => article.saved);
 
-// The signed-in user's own drafts/published pieces — used on the MyWorks page.
 export const myWorks = [
-    {
-        id: "writing-without-audience",
-        category: "Letters",
-        title: "On Writing Without an Audience",
-        date: "XX July MMXXVI",
-    },
+  {
+    id: "writing-without-audience",
+    category: "Letters",
+    title: "On Writing Without an Audience",
+    date: "XX July MMXXVI",
+  },
 ];
 
-export const categories = ["All Subjects", "Philosophy", "History", "Arts", "Sciences", "Letters", "Politics"];
+export const categories = [
+  "All Subjects",
+  "Philosophy",
+  "History",
+  "Arts",
+  "Sciences",
+  "Letters",
+  "Politics",
+];
