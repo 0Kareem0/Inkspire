@@ -17,7 +17,6 @@ export default function ArticleCard() {
           <span className="mb-6 w-fit rounded-md border border-[#765d27] px-3 py-1 text-xs tracking-[0.2em] text-[#b99a50]">
             PHILOSOPHY
           </span>
-
           <h1 className="max-w-3xl font-serif text-4xl leading-tight text-[#eee4cf] md:text-5xl transition-colors duration-300 group-hover:text-[#d4b873]">
             On the Virtue of Slowness in an Age of Acceleration
           </h1>
