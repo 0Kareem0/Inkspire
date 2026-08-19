@@ -1,4 +1,5 @@
 import { articles } from "../data/articles";
+import { useState } from "react";
 
 type Article = (typeof articles)[number];
 
@@ -6,7 +7,14 @@ type ArticleCardProps = {
   article: Article;
 };
 
+
 function ArticleCard({ article }: ArticleCardProps) {
+  const [save, setSave] = useState(false);
+
+  const clickSaveButton = ()=>{
+    setSave(!save);
+  }
+  
   return (
     <article className="group grid grid-cols-[1fr_140px] gap-6 py-8 border-b border-[#292218] transition-all duration-300 hover:bg-[#1a1610] hover:px-4">
       <div className="flex flex-col justify-center">
@@ -45,8 +53,8 @@ function ArticleCard({ article }: ArticleCardProps) {
 
         <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-        <button className="absolute bottom-3 right-3 p-2 rounded-full bg-[#1a1610]/80 backdrop-blur-sm text-[#b4973f] hover:bg-[#b4973f] hover:text-[#1a1610] transition-all duration-300 cursor-pointer">
-          {article.saved ? "▮" : "▯"}
+        <button className="absolute bottom-3 right-3 p-2 rounded-full bg-[#1a1610]/80 backdrop-blur-sm text-[#b4973f] hover:bg-[#b4973f] hover:text-[#1a1610] transition-all duration-300 cursor-pointer" onClick={clickSaveButton}>
+          {save ? "▮" : "▯"}
         </button>
       </div>
     </article>
