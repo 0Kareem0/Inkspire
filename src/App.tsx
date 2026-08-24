@@ -1,6 +1,6 @@
 import Home from "./pages/Home";
 
-console.log("added routes");
+console.log("pages");
 function App() {
     return <Home />;
 }
