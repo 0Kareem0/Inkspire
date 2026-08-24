@@ -1,7 +1,7 @@
 import Home from "./pages/Home";
 
-console.log("pages");
-function App() {
+console.log("pages created");
+function App() {    
     return <Home />;
 }
 
