@@ -4,7 +4,7 @@ import Write from "./pages/Write";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import { Route, Routes } from "react-router-dom";
-console.log("cant focus cuz im fighting for my sanity");
+console.log("back");
 
 function App() {    
     return (
