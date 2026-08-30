@@ -4,7 +4,7 @@ import Write from "./pages/Write";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import { Route, Routes } from "react-router-dom";
-console.log("im tired");
+console.log("Program: A set of instructions executed by a computer");
 
 function App() {    
     return (
