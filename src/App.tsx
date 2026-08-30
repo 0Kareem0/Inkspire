@@ -3,8 +3,8 @@ import Home from "./pages/Home";
 import Write from "./pages/Write";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
-import { Route, Routes } from "react-router-dom";
-console.log("Program: A set of instructions executed by a computer");
+import { data, Route, Routes } from "react-router-dom";
+console.log(`Value: Some piece of data: 5, "hello", true, etc.`);
 
 function App() {    
     return (
