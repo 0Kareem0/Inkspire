@@ -4,7 +4,7 @@ import Write from "./pages/Write";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import { data, Route, Routes } from "react-router-dom";
-console.log(`Variable: A named binding that lets you refer to a value`);
+console.log(`Memory: Where the running program keeps data it needs`);
 
 function App() {    
     return (
