@@ -4,7 +4,7 @@ import Write from "./pages/Write";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import { data, Route, Routes } from "react-router-dom";
-console.log(`Value: Some piece of data: 5, "hello", true, etc.`);
+console.log(`mistake i made a mistake i commited the wrong question should've been what is value`);
 
 function App() {    
     return (
