@@ -4,7 +4,7 @@ import Write from "./pages/Write";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import { data, Route, Routes } from "react-router-dom";
-console.log(`mistake i made a mistake i commited the wrong question should've been what is value`);
+console.log(`Variable: A named binding that lets you refer to a value`);
 
 function App() {    
     return (
