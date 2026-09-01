@@ -4,7 +4,7 @@ import Write from "./pages/Write";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import { data, Route, Routes } from "react-router-dom";
-console.log(`49%`);
+console.log(`50%`);
 
 function App() {    
     return (
