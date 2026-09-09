@@ -4,7 +4,7 @@ import Write from "./pages/Write";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import { Route, Routes } from "react-router-dom";
-console.log(`What is a condition?`);
+console.log(`What is a loop?`);
 
 function App() {    
     return (
