@@ -4,7 +4,7 @@ import Write from "./pages/Write";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import { Route, Routes } from "react-router-dom";
-console.log(`What does a program actually do from start → finish?`);
+console.log(`antifragile 💪`);
 
 function App() {    
     return (
