@@ -4,7 +4,7 @@ import Write from "./pages/Write";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import { Route, Routes } from "react-router-dom";
-console.log(`What is an argument?`);
+console.log(`What does return actually do?`);
 
 function App() {    
     return (
